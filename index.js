@@ -230,6 +230,9 @@ function onReady () {
             elements[json.targetID].close()
             break;
             case consts.eventNames.windowCmdCreate:
+            if( 'windowOptions' in json && 'title' in json.windowOptions ){
+              app.setName(json.windowOptions.title)
+            }
             windowCreate(json)
             break;
             case consts.eventNames.windowCmdDestroy:
